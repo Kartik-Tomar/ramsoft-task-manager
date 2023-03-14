@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
@@ -18,5 +18,17 @@ describe('App', () => {
     const buttonElement = screen.getByText(/create task/i);
     expect(buttonElement).toBeInTheDocument();
   });
+  test('Create Task', async () => {
+    render(<App />);
+    const createButton = screen.getByText(/Create Task/i);
+    fireEvent.click(createButton);
+    const nameInputElement = screen.getByRole('textbox', { name: "name" });
+    expect(nameInputElement).toBeInTheDocument();
+    fireEvent.change(nameInputElement, {target: {value: 'test 1'}})
+    const createButtonModal = screen.getByRole('button', { type: "submit" });
+    fireEvent.click(createButtonModal);
+    const nameTaskElement = await screen.findByText('Name: test 1');
+    expect(nameTaskElement).toBeInTheDocument();
+  })
 })
 
