@@ -1,0 +1,6 @@
+.create-task-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+}

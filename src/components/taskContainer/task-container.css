@@ -1,0 +1,13 @@
+.task-container {
+    border: solid 1px;
+    margin-top: 10px;
+    flex: 3;
+}
+.task-container-header {
+    border-bottom: solid 1px;
+    padding: 10px;
+}
+.task-container-body{
+    min-height: 500px;
+    padding: 10px;
+}
