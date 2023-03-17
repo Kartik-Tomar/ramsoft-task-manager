@@ -11,10 +11,10 @@ const style = {
     p: 2,
     m: 1
 };
-const Task = ({ data, changeStatus }) => {
-    const handleChange = (e) => changeStatus({ id: data.id, status: e.target.value})
+const Task = ({ data, changeStatus, dragData, setDragData }) => {
+    const handleChange = (e) => changeStatus({ id: data.id, status: e.target.value })
     return (
-        <Box sx={style} >
+        <Box sx={style}>
             <Typography variant="h6" component="p" gutterBottom>
                 Name: {data.name}
             </Typography>

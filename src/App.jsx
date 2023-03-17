@@ -11,6 +11,7 @@ const App = () => {
   const [todoTask, setTodoTask] = useState([]);
   const [progressTask, setProgressTask] = useState([]);
   const [doneTask, setDoneTask] = useState([]);
+  const [dragData, setDragData] = useState(null);
 
   useEffect(() => {
     let task = window.localStorage.getItem('tasks');
@@ -74,9 +75,9 @@ const App = () => {
       </Typography>
       <CreateTask saveNewTask={saveNewTask} />
       <div className='table-container'>
-        <TaskContainer label={"Todo"} taskArray={todoTask} changeStatus={changeStatus} />
-        <TaskContainer label={"In Progress"} taskArray={progressTask} changeStatus={changeStatus} />
-        <TaskContainer label={"Done"} taskArray={doneTask} changeStatus={changeStatus} />
+        <TaskContainer label={"Todo"} tableId="todo" taskArray={todoTask} changeStatus={changeStatus} dragData={dragData} setDragData={setDragData} />
+        <TaskContainer label={"In Progress"} tableId="inProgress" taskArray={progressTask} changeStatus={changeStatus} dragData={dragData} setDragData={setDragData} />
+        <TaskContainer label={"Done"} tableId="done" taskArray={doneTask} changeStatus={changeStatus} dragData={dragData} setDragData={setDragData} />
       </div>
     </Container>
   );
